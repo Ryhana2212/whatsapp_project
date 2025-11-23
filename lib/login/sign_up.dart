@@ -10,6 +10,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  bool isPassword = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,28 +39,50 @@ class _SignUpState extends State<SignUp> {
               ),SizedBox(
                 height: 20,
               ),
-              TextField(decoration: InputDecoration(
-                labelText: "Password",
-                hintText: "Password",
-                prefix: Icon(Icons.password),
-                suffix: Icon(Icons.visibility),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(24),
+              TextField(
+                obscureText: isPassword,
+                decoration:
+                InputDecoration(
+                  labelText: "Password",
+                  hintText: "Password",
+                  prefix: Icon(Icons.password),
+                  suffix: IconButton(onPressed: (){
+                    setState(() {
+                      isPassword = !isPassword;
+                    });
+                    print(isPassword);
+                  }, icon : isPassword
+                      ? Icon(Icons.visibility_off)
+                      : Icon(Icons.visibility),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
                 ),
-              ),
               ),
               SizedBox(
                 height: 20,
               ),
-              TextField(decoration: InputDecoration(
-                labelText: "Password",
-                hintText: "Password",
-                prefix: Icon(Icons.password),
-                suffix: Icon(Icons.visibility),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(24),
+              TextField(
+                obscureText: isPassword,
+                decoration:
+                InputDecoration(
+                  labelText: "Password",
+                  hintText: "Password",
+                  prefix: Icon(Icons.password),
+                  suffix: IconButton(onPressed: (){
+                    setState(() {
+                      isPassword = !isPassword;
+                    });
+                    print(isPassword);
+                  }, icon : isPassword
+                      ? Icon(Icons.visibility_off)
+                      : Icon(Icons.visibility),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
                 ),
-              ),
               ),
               SizedBox(
                 height: 20,

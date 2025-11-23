@@ -10,6 +10,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  bool isPassword = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,14 +36,26 @@ class _LoginState extends State<Login> {
                   borderRadius: BorderRadius.circular(24),
                 )
               ),
-              ),SizedBox(
+              ),
+              SizedBox(
                 height: 20,
               ),
-              TextField(decoration: InputDecoration(
+              TextField(
+                obscureText: isPassword,
+                decoration:
+                InputDecoration(
                 labelText: "Password",
                 hintText: "Password",
                 prefix: Icon(Icons.password),
-                suffix: Icon(Icons.visibility),
+                suffix: IconButton(onPressed: (){
+                  setState(() {
+                    isPassword = !isPassword;
+                  });
+                  print(isPassword);
+                }, icon : isPassword
+                    ? Icon(Icons.visibility_off)
+                  : Icon(Icons.visibility),
+                    ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(24),
                 ),
